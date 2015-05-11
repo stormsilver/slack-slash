@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var urban = require('urban');
 var bodyParser = require('body-parser');
-var requestify = require('requestify');
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -25,15 +24,7 @@ app.post('/urban', function(request, response) {
 			'Link: <' + json.permalink + '>'
 		];
 
-	    requestify.post('https://hooks.slack.com/services/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', {
-	        text: payload.join("\n"),
-	        username: 'Urban Bot',
-	        icon_emoji: ':lol:',
-	        channel: request.body.channel_name
-	    }).then(function(response) {
-	        
-	    });
-	    response.send('test');
+	    response.send(payload.join("\n"));
 	});
 });
 

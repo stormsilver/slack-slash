@@ -18,7 +18,7 @@ app.post('/urban', function(request, response) {
 	var word = urban(request.body.text);
 
 	word.first(function(json) {
-	    response.send(json.definition);
+	    response.send(json.definition + '\n' + json.permalink);
 	});
 });
 

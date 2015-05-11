@@ -30,7 +30,10 @@ app.post('/urban', function(request, response) {
 	        username: 'Urban Bot',
 	        icon_emoji: ':lol:',
 	        channel: request.body.channel_name
+	    }).then(function(response) {
+	        
 	    });
+	    response.send('test');
 	});
 });
 

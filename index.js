@@ -37,12 +37,13 @@ app.post('/urban', function(req, res) {
             url: 'https://hooks.slack.com/services/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',
             form: { payload: JSON.stringify(payload) }
             }, function (err, resp, body) {
-            if (err) {
-              return res.status(500).send({ success: false, error: err.message });
-            }
 
-            res.end();
-        });
+                if (err) {
+                  return res.status(500).send({ success: false, error: err.message });
+                }
+
+                res.end();
+            });
     });
 });
 

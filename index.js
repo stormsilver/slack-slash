@@ -16,7 +16,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/urban', function(req, res) {
-	var word = urban('inboob');
+	var word = urban(req.body.text);
 
     word.first(function(json) {
         var payload = [

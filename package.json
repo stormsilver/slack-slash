@@ -4,12 +4,13 @@
   "description": "A node.js app to handle slash commands from Slack",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "supervisor index.js"
   },
   "dependencies": {
     "body-parser": "^1.12.3",
     "express": "~4.9.x",
-    "urban": "~0.2.3"
+    "urban": "~0.2.3",
+    "request": "2.56.x"
   },
   "engines": {
     "node": "0.12.2"
@@ -18,5 +19,8 @@
     "type": "git",
     "url": "https://github.com/thetimbanks/slack-slash"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "supervisor": "^0.6.0"
+  }
 }

@@ -34,7 +34,7 @@ app.post('/urban', function(req, res) {
         };
 
         request.post({
-            url: 'https://hooks.slack.com/services/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',
+            url: 'https://hooks.slack.com/services/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',
             form: { payload: JSON.stringify(payload) }
             }, function (err, resp, body) {
 

@@ -71,7 +71,7 @@ app.post('/fmsversion', function(req, res) {
 
                     payload = {
                         channel: channel,
-                        text: "Branch: " + parameters.value
+                        text: "Branch: " + parameters[0].value
                     };
 
                     request.post({

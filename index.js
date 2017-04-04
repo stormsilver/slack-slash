@@ -75,7 +75,7 @@ app.post('/fmsversion', function(req, res) {
                     };
 
                     request.post({
-                        url: 'https://hooks.slack.com/services/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',
+                        url: 'https://hooks.slack.com/services/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',
                         form: { payload: JSON.stringify(payload) }
                         }, function (err, resp, body) {
 

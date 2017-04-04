@@ -113,7 +113,7 @@ app.post('/apollofmsversion', function(req, res) {
 
                     payload = {
                         channel: channel,
-                        text: "FMS Release Branch: " + parameters[0].value
+                        text: "Apollo FMS Release Branch: " + parameters[0].value
                     };
 
                     request.post({

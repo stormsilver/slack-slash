@@ -71,7 +71,49 @@ app.post('/fmsversion', function(req, res) {
 
                     payload = {
                         channel: channel,
-                        text: "Branch: " + parameters[0].value
+                        text: "FMS Release Branch: " + parameters[0].value
+                    };
+
+                    request.post({
+                        url: 'https://hooks.slack.com/services/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',
+                        form: { payload: JSON.stringify(payload) }
+                        }, function (err, resp, body) {
+
+                            if (err) {
+                              return res.status(500).send({ success: false, error: err.message });
+                            }
+
+                            res.end();
+                        });
+                });
+        });
+});
+
+app.post('/apollofmsversion', function(req, res) {
+    request.get({
+        url: 'https://jenkins.rnl.io/job/Cubesmart/job/cubesmart-production/api/json',
+        auth: {
+                user: process.env.JENKINS_USER,
+                pass: process.env.JENKINS_API_KEY
+            }
+        }, function (err, resp, body) {
+            var jsonBody = JSON.parse(body);
+            var latestSuccessfulBuild = jsonBody.lastSuccessfulBuild;
+            request.get({
+                url: latestSuccessfulBuild.url + 'api/json',
+                auth: {
+                        user: process.env.JENKINS_USER,
+                        pass: process.env.JENKINS_API_KEY
+                    }
+                }, function (err, resp, body) {
+                    var jsonBody = JSON.parse(body);
+                    var parameters = jsonBody.actions[0].parameters;
+                    var channel = req.body.channel_name === 'directmessage' ?
+                        req.body.channel_id : '#' + req.body.channel_name;
+
+                    payload = {
+                        channel: channel,
+                        text: "FMS Release Branch: " + parameters[0].value
                     };
 
                     request.post({

@@ -56,9 +56,9 @@ app.post('/fmsversion', function(req, res) {
             }
         }, function (err, resp, body) {
             var jsonBody = JSON.parse(body);
-            var latestSuccessfulBuild = jsonBody.lastSuccessfulBuild;
+            var latestBuild = jsonBody.builds[0];
             request.get({
-                url: latestSuccessfulBuild.url + 'api/json',
+                url: latestBuild.url + 'api/json',
                 auth: {
                         user: process.env.JENKINS_USER,
                         pass: process.env.JENKINS_API_KEY
@@ -98,9 +98,9 @@ app.post('/apollofmsversion', function(req, res) {
             }
         }, function (err, resp, body) {
             var jsonBody = JSON.parse(body);
-            var latestSuccessfulBuild = jsonBody.lastSuccessfulBuild;
+            var latestBuild = jsonBody.build[0];
             request.get({
-                url: latestSuccessfulBuild.url + 'api/json',
+                url: latestBuild.url + 'api/json',
                 auth: {
                         user: process.env.JENKINS_USER,
                         pass: process.env.JENKINS_API_KEY

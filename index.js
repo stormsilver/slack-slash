@@ -98,7 +98,7 @@ app.post('/apollofmsversion', function(req, res) {
             }
         }, function (err, resp, body) {
             var jsonBody = JSON.parse(body);
-            var latestBuild = jsonBody.build[0];
+            var latestBuild = jsonBody.builds[0];
             request.get({
                 url: latestBuild.url + 'api/json',
                 auth: {

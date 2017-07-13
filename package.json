@@ -13,7 +13,7 @@
     "request": "2.56.x"
   },
   "engines": {
-    "node": "0.12.2"
+    "node": "6.11.1"
   },
   "repository": {
     "type": "git",
